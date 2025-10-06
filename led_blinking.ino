@@ -1,0 +1,25 @@
+const int leds[] = {15, 17, 5, 18, 19, 21, 22, 23};
+const int ledCount = sizeof(leds) / sizeof(leds[0]);
+
+void setup() {
+  // Настраиваем все пины как выходы
+  for (int i = 0; i < ledCount; i++) {
+    pinMode(leds[i], OUTPUT);
+  }
+}
+
+void loop() {
+  // Вперёд
+  for (int i = 0; i < ledCount; i++) {
+    digitalWrite(leds[i], HIGH);
+    delay(400);
+    digitalWrite(leds[i], LOW);
+  }
+
+  // Назад 
+  for (int i = ledCount - 2; i > 0; i--) {
+    digitalWrite(leds[i], HIGH);
+    delay(400);
+    digitalWrite(leds[i], LOW);
+  }
+}
